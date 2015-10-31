@@ -24,6 +24,14 @@ var downB=true;
 var leftB=true;
 var rightB=true;
 
+var posX=0;
+var posY = 0;
+var k=1;
+var time=0;
+var offsetX=0;
+var offsetY=0;
+var tick=0;
+var maps=[];
 
 function unloadScrollBars() {
     document.documentElement.style.overflow = 'hidden';  // firefox, chrome
