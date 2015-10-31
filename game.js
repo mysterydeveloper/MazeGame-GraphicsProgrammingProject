@@ -1,29 +1,34 @@
-
+////////////////////////Canvas \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 var canvas = document.getElementById("canvas");
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight
 var context = canvas.getContext("2d");
 
+////////////////////////Variables For Array to display \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 var mapArray="   ";
 var res=[];
 var mazeheight=30;
 var mazewidth=50;
 
+////////////////////////Image variables \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 var grass = new Image();
 var tree = new Image();
 var bush = new Image();
 var player = new Image();
 
+////////////////////////Image sources \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 grass.src= 'grass.png';
 tree.src = 'tree.png';
 bush.src = 'bush.png';
 player.src='player.png';
 
+////////////////////////Boolean variables for collisions \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 var upB=true;
 var downB=true;
 var leftB=true;
 var rightB=true;
 
+////////////////////////Misc variables for game \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 var posX=0;
 var posY = 0;
 var k=1;
