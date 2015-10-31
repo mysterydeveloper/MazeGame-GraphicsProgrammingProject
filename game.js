@@ -19,6 +19,11 @@ tree.src = 'tree.png';
 bush.src = 'bush.png';
 player.src='player.png';
 
+var upB=true;
+var downB=true;
+var leftB=true;
+var rightB=true;
+
 
 function unloadScrollBars() {
     document.documentElement.style.overflow = 'hidden';  // firefox, chrome
