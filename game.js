@@ -106,7 +106,10 @@ function maze() {
         HEIGHT : 30,
  
         DIRECTIONS : {
-
+           'N' : { dy: -1, opposite: 'S' },
+            'S' : { dy:  1, opposite: 'N' },
+            'E' : { dx:  1, opposite: 'W' },
+            'W' : { dx: -1, opposite: 'E' }
         },
  
         prefill : function () {
