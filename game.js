@@ -113,7 +113,12 @@ function maze() {
         },
  
         prefill : function () {
-
+		for (var x = 0; x < this.WIDTH; x++) {
+                this.map[x] = [];
+                for (var y = 0; y < this.HEIGHT; y++) {
+                    this.map[x][y] = {};
+                }
+            }
         },
  
         shuffle : function (o) {
