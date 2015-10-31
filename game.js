@@ -52,6 +52,7 @@ unloadScrollBars();
 
 ////////////////////////Player Object \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 var playerobj = {
+	/////////////Player x and y positions\\\\\\\\\\\\\\\\\
 	x: 60,
 	y: 30,
 	////////////////////////Draw Function for drawing the player to the screen \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -111,7 +112,9 @@ var playerobj = {
 		current();
 	}
 }
+////////////////////////Maze function for designing the maze which is all done by the computer when the game runs \\\\\\\\\\\\\\\\\\\\\\
 function maze() {
+	////////////////////////mazeMaker OBject for the maze generation\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
    var mazeMaker = {
         map    : [],
         WIDTH  : 50,
