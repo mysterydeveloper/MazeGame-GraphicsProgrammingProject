@@ -100,7 +100,37 @@ var playerobj = {
 }
  
 function maze() {
-  
+   var mazeMaker = {
+        map    : [],
+        WIDTH  : 50,
+        HEIGHT : 30,
+ 
+        DIRECTIONS : {
+
+        },
+ 
+        prefill : function () {
+
+        },
+ 
+        shuffle : function (o) {
+
+        },
+ 
+        carve : function (x0, y0, direction) {
+
+        },
+ 
+        output : function () {
+
+            
+        }
+    };
+ 
+    mazeMaker.prefill();
+    mazeMaker.carve(mazeMaker.WIDTH/2, mazeMaker.HEIGHT/2, 'N');
+    mazeMaker.output();
+	res=mapArray.split("");
 }
 maze();
 
