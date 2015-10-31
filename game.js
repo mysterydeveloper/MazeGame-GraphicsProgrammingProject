@@ -176,7 +176,49 @@ function maze() {
 maze();
 
 function mazedraw(){
-	
+	k=1;
+	posX=0-offsetX;
+	posY=0-offsetY;
+	for(var i=0; i < 30; i++){
+		for(var j=0; j < 99; j++){
+
+			if(res[k]==' ' ){
+				context.drawImage(grass,posX, posY, 30, 30);
+				maps[i][j]='0';
+			}
+			if(res[k]=='_' ){
+				context.drawImage(bush,posX, posY, 30, 30);
+				maps[i][j]='1';
+			}
+			if( res[k]=='|' ){
+				context.drawImage(tree,posX,posY,30,30);
+				maps[i][j]='2';
+			}
+			k++;
+			posX+=30;
+		}
+		if(i<29){
+			context.drawImage(tree,posX,posY,30,30);
+			maps[i][j]='2';
+		}
+		k+=2;
+		posY+=30;
+		posX=0-offsetX;
+	}
+	if(i==30){
+		posY-=30;
+		for(off=0;off<10;off++){
+		posY+=30;
+		posX=0-offsetX;
+			for(var j=0; j < 98; j++){
+				context.drawImage(tree,posX,posY,30,30);
+				maps[i][j]='2';
+				posX+=30;
+
+			}
+		}
+		
+	}
 }
 
 function main(){
