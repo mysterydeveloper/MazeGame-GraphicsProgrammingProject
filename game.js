@@ -56,6 +56,46 @@ var playerobj = {
 	
 	collision: function(){
 
+		function up(){
+			var above=maps[(playerobj.y/30)-1][((playerobj.x)/30)];
+			if(above=='0'){upB=true;}
+			else if(above=='1'){upB=false;}
+			else if(above=='2'){upB=false;}
+			//console.log(above);
+		}
+		function down(){
+			
+			var below=maps[(playerobj.y/30)+1][(playerobj.x/30)];
+			if(below=='0'){downB=true;}
+			else if(below=='1'){downB=true;}
+			else if(below=='2'){downB=false;}
+			//console.log(below);
+		}
+		function left(){
+			var lefty=maps[(playerobj.y/30)][(playerobj.x/30)-1];
+			if(lefty=='0'){leftB=true;}
+			else if(lefty=='1'){leftB=true;}
+			else if(lefty=='2'){leftB=false;}
+			//console.log(lefty);
+		}
+		function right(){
+			var righty=maps[(playerobj.y/30)][((playerobj.x)/30)+1];
+			if(righty=='0'){rightB=true;}
+			else if(righty=='1'){rightB=true;}
+			else if(righty=='2'){rightB=false;}
+			//console.log(righty);
+		}
+		function current(){
+			var currenty=maps[(playerobj.y/30)][(playerobj.x/30)];
+			if(currenty=='1'){downB=false;}
+			//console.log(righty);
+		}
+
+		right();
+		left();
+		down();
+		up();
+		current();
 	}
 }
  
