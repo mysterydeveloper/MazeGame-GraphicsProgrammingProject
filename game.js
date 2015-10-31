@@ -38,19 +38,23 @@ var offsetY=0;
 var tick=0;
 var maps=[];
 
+////////////////////////Making maps[] a 2d array by looping over \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 for (var y = 0; y < 31; y++) {
                maps[y] = [];
 }
 
+////////////////////////Function for disabling scroll bars \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 function unloadScrollBars() {
     document.documentElement.style.overflow = 'hidden';  // firefox, chrome
     document.body.scroll = "no"; // ie only
 }
 unloadScrollBars();
+
+////////////////////////Player Object \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 var playerobj = {
 	x: 60,
 	y: 30,
-
+	////////////////////////Draw Function for drawing the player to the screen \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 	draw: function() {
 			context.clearRect(playerobj.x-offsetX,playerobj.y-offsetY,20,20);
 
@@ -58,9 +62,9 @@ var playerobj = {
 		
 	
 	},
-	
+	////////////////////////Collision function to see whre the player is and dectect if he is able to move or not \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 	collision: function(){
-
+		////////////////////////up function the sees if the player can move up or not \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 		function up(){
 			var above=maps[(playerobj.y/30)-1][((playerobj.x)/30)];
 			if(above=='0'){upB=true;}
@@ -68,6 +72,7 @@ var playerobj = {
 			else if(above=='2'){upB=false;}
 			//console.log(above);
 		}
+		////////////////////////down function the sees if the player can move down or not \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 		function down(){
 			
 			var below=maps[(playerobj.y/30)+1][(playerobj.x/30)];
@@ -76,6 +81,7 @@ var playerobj = {
 			else if(below=='2'){downB=false;}
 			//console.log(below);
 		}
+		////////////////////////left function the sees if the player can move left or not \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 		function left(){
 			var lefty=maps[(playerobj.y/30)][(playerobj.x/30)-1];
 			if(lefty=='0'){leftB=true;}
@@ -83,6 +89,7 @@ var playerobj = {
 			else if(lefty=='2'){leftB=false;}
 			//console.log(lefty);
 		}
+		////////////////////////right function the sees if the player can move right or not \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 		function right(){
 			var righty=maps[(playerobj.y/30)][((playerobj.x)/30)+1];
 			if(righty=='0'){rightB=true;}
@@ -90,6 +97,7 @@ var playerobj = {
 			else if(righty=='2'){rightB=false;}
 			//console.log(righty);
 		}
+		////////////////////////current function the sees if the player can move down or not if player is on a half block\\\\\\\\\\
 		function current(){
 			var currenty=maps[(playerobj.y/30)][(playerobj.x/30)];
 			if(currenty=='1'){downB=false;}
@@ -103,7 +111,6 @@ var playerobj = {
 		current();
 	}
 }
- 
 function maze() {
    var mazeMaker = {
         map    : [],
