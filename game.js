@@ -222,7 +222,21 @@ function mazedraw(){
 }
 
 function main(){
+	if(time>0){mazedraw();}
+	grass.onload = function (){
+		tree.onload = function (){
+			bush.onload = function(){
+				mazedraw();
+			} 
+		}
 
+	}
+	time++;	
+	playerobj.draw();
+	//console.log(tick);
+	context.font="30px Verdana";
+	context.fillText("time:"+tick,window.innerWidth/2/2,window.innerHeight);
+	context.fillStyle = "#ff0000"; 
 	window.requestAnimationFrame(main);
 }
 
