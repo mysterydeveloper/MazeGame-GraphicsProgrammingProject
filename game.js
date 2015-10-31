@@ -153,7 +153,17 @@ function maze() {
         },
  
         output : function () {
-
+ 		var output = ' ';
+            for (var y = 0; y < this.HEIGHT; y++) {
+                for (var x = 0; x < this.WIDTH; x++) {
+                    output += ( this.map[x][y].S ? ' ' : '_' );    
+                    output += ( this.map[x][y].E ? ' ' : '|' );
+                }
+                output += '\n';
+            }
+            output = output.replace(/_ /g, '__');
+		  console.log(output);
+		  mapArray=output;
             
         }
     };
