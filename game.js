@@ -4,6 +4,12 @@ canvas.width=window.innerWidth;
 canvas.height=window.innerHeight
 var context = canvas.getContext("2d");
 
+var mapArray="   ";
+var res=[];
+var mazeheight=30;
+var mazewidth=50;
+
+
 function unloadScrollBars() {
     document.documentElement.style.overflow = 'hidden';  // firefox, chrome
     document.body.scroll = "no"; // ie only
