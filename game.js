@@ -246,6 +246,30 @@ setInterval(function add(){tick++;},1000);
 
 window.addEventListener("keydown", function(event) { 
 
-
-
+        playerobj.collision();
+        if (event.keyCode == 39 && rightB==true )//right
+	  {
+		playerobj.x+=30;		  
+		offsetX+=30;	
+          //console.log(event);
+	  }
+        if (event.keyCode == 37 && leftB==true )//left
+	  {
+		  playerobj.x-=30;
+		  offsetX-=30;
+           //console.log(event);
+	  }
+        if (event.keyCode == 40 && downB==true )//down
+	  {
+		playerobj.y+=30;
+		offsetY+=30;
+ 		//console.log(event);
+	  }
+        if (event.keyCode == 38 && upB==true )//up
+	  {
+		playerobj.y-=30;
+		  offsetY-=30;
+           //console.log(event);
+	  }
+        
 });
