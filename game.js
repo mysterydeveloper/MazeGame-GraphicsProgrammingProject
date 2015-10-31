@@ -33,6 +33,10 @@ var offsetY=0;
 var tick=0;
 var maps=[];
 
+for (var y = 0; y < 31; y++) {
+               maps[y] = [];
+}
+
 function unloadScrollBars() {
     document.documentElement.style.overflow = 'hidden';  // firefox, chrome
     document.body.scroll = "no"; // ie only
