@@ -9,6 +9,16 @@ var res=[];
 var mazeheight=30;
 var mazewidth=50;
 
+var grass = new Image();
+var tree = new Image();
+var bush = new Image();
+var player = new Image();
+
+grass.src= 'grass.png';
+tree.src = 'tree.png';
+bush.src = 'bush.png';
+player.src='player.png';
+
 
 function unloadScrollBars() {
     document.documentElement.style.overflow = 'hidden';  // firefox, chrome
