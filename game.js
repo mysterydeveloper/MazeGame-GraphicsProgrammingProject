@@ -242,6 +242,7 @@ function main(){
 
 
 window.requestAnimationFrame(main);
+setInterval(function add(){tick++;},1000);
 
 window.addEventListener("keydown", function(event) { 
 
