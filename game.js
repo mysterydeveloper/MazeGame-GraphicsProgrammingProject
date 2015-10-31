@@ -43,7 +43,16 @@ function unloadScrollBars() {
 }
 unloadScrollBars();
 var playerobj = {
+	x: 60,
+	y: 30,
+
+	draw: function() {
+		
+	},
 	
+	collision: function(){
+
+	}
 }
  
 function maze() {
