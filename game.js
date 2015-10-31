@@ -127,7 +127,29 @@ function maze() {
         },
  
         carve : function (x0, y0, direction) {
-
+ 		//console.log('[%d, %d, "%s"]', x0, y0, direction);
+ 
+            var x1 = x0 + (this.DIRECTIONS[direction].dx || 0);
+            var y1 = y0 + (this.DIRECTIONS[direction].dy || 0);
+ 
+            if (x1 == 0 || x1 == this.WIDTH || y1 == 0 || y1 == this.HEIGHT) {
+                return;
+            }
+ 
+            if ( this.map[x1][y1].seen ) {
+                return;
+            }
+ 
+            this.map[x0][y0][ direction ] = true;
+            this.map[x1][y1][ this.DIRECTIONS[direction].opposite ] = true;
+            this.map[x1][y1].seen = true;
+		//console.log(this.map[x1][y1]);
+		  
+ 
+            var directions = this.shuffle([ 'N', 'S', 'E', 'W' ]);
+            for (var i = 0; i < directions.length; i++) {
+                this.carve(x1, y1, directions[i]);
+            }
         },
  
         output : function () {
