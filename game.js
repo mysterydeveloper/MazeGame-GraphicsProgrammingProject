@@ -47,7 +47,11 @@ var playerobj = {
 	y: 30,
 
 	draw: function() {
+			context.clearRect(playerobj.x-offsetX,playerobj.y-offsetY,20,20);
+
+		context.drawImage(player,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);
 		
+	
 	},
 	
 	collision: function(){
