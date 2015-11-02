@@ -1,3 +1,4 @@
+
 ////////////////////////Canvas \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 var canvas = document.getElementById("canvas");
 canvas.width=window.innerWidth;
@@ -37,6 +38,9 @@ var offsetX=0;
 var offsetY=0;
 var tick=0;
 var maps=[];
+var startb=false;
+var best = localStorage.getItem("besttime") || 100000;
+
 
 ////////////////////////Making maps[] a 2d array by looping over \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 for (var y = 0; y < 31; y++) {
@@ -102,7 +106,7 @@ var playerobj = {
 		function current(){
 			var currenty=maps[(playerobj.y/30)][(playerobj.x/30)];
 			if(currenty=='1'){downB=false;}
-			//console.log(righty);
+			//console.log(currenty);
 		}
 
 		right();
@@ -234,9 +238,34 @@ function mazedraw(){
 		}
 		
 	}
+	maps[29][98]='3';
 }
-
+function end(){
+	context.clearRect(0,0,1000,1000);
+	context.fillStyle= "black";
+	context.fillRect(0,0,1000,1000);
+	context.fillStyle= "red";
+	if(startb==true){window.requestAnimationFrame(main);}
+	context.font="30px Verdana";
+	context.fillText(" TRAPPED ",10,30);
+	context.font="10px Verdana";
+	context.fillText(" You Win !!!!!!! ",10,60);
+	context.fillText(" You have defeated the evil mastermind",10,80);
+	context.fillText(" and foiled his evil plan !!! ",10,100);
+	context.fillText(" the world is is in your death ",10,120);
+	context.fillText(" would u like to try again? ",10,140);
+	context.font="30px Verdana";
+	context.fillText(" If so Press ENTER NOW!! ",10,190);	
+	window.requestAnimationFrame(end);
+}
 function main(){
+	startb=false;
+	var cpop=maps[(playerobj.y/30)][(playerobj.x/30)];
+	if(cpop=='3'){
+		window.requestAnimationFrame(end);
+	}
+	else{
+		context.clearRect(0,0,2000,2000);
 	if(time>0){mazedraw();}
 	grass.onload = function (){
 		tree.onload = function (){
@@ -252,11 +281,35 @@ function main(){
 	context.font="30px Verdana";
 	context.fillText("time:"+tick,window.innerWidth/2/2,window.innerHeight);
 	context.fillStyle = "#ff0000"; 
+		
 	window.requestAnimationFrame(main);
+	}
 }
+function start(){
+	if(startb==true){window.requestAnimationFrame(main);}
+	context.clearRect(0,0,2000,2000);
+	if(startb==false){
+	context.fillStyle= "black";
+	context.fillRect(0,0,2000,2000);
+	context.fillStyle= "red";
+	context.font="30px Verdana";
+	context.fillText(" TRAPPED ",10,30);
+	context.font="10px Verdana";
+	context.fillText(" You have been trapped by an evil mastermind ",10,60);
+	context.fillText(" Can you escape his clutches and warn the world",10,80);
+	context.fillText(" of his evil plan !!! ",10,100);
+	context.fillText(" the world is depending on you... ",10,120);
+	context.fillText(" are you up to the challenge? ",10,140);
+	context.font="30px Verdana";
+	context.fillText(" If so Press ENTER NOW!! ",10,190);
+	if(best==0) best="NEVER FINSISHED ";
+	context.fillText(" Best time: ",10,230);
+	context.fillText(" "+best,10,260);
+	window.requestAnimationFrame(start);
+	}
+}
+window.requestAnimationFrame(start);
 
-
-window.requestAnimationFrame(main);
 setInterval(function add(){tick++;},1000);
 
 window.addEventListener("keydown", function(event) { 
@@ -284,6 +337,11 @@ window.addEventListener("keydown", function(event) {
 	  {
 		playerobj.y-=30;
 		  offsetY-=30;
+           //console.log(event);
+	  }
+	if (event.keyCode == 13 )//enter
+	  {
+		startb=true;
            //console.log(event);
 	  }
         
