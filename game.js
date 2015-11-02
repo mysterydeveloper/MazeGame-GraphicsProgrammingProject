@@ -241,9 +241,9 @@ function mazedraw(){
 	maps[29][98]='3';
 }
 function end(){
-	context.clearRect(0,0,1000,1000);
+	context.clearRect(0,0,2000,2000);
 	context.fillStyle= "black";
-	context.fillRect(0,0,1000,1000);
+	context.fillRect(0,0,2000,2000);
 	context.fillStyle= "red";
 	if(startb==true){window.requestAnimationFrame(main);}
 	context.font="30px Verdana";
@@ -262,10 +262,13 @@ function main(){
 	startb=false;
 	var cpop=maps[(playerobj.y/30)][(playerobj.x/30)];
 	if(cpop=='3'){
+		if(tick<best){best=tick;}
 		window.requestAnimationFrame(end);
 	}
 	else{
+		
 		context.clearRect(0,0,2000,2000);
+		context.fillRect(0,0,2000,2000);
 	if(time>0){mazedraw();}
 	grass.onload = function (){
 		tree.onload = function (){
@@ -302,7 +305,7 @@ function start(){
 	context.fillText(" are you up to the challenge? ",10,140);
 	context.font="30px Verdana";
 	context.fillText(" If so Press ENTER NOW!! ",10,190);
-	if(best==0) best="NEVER FINSISHED ";
+	if(best==100000) best="NEVER FINSISHED ";
 	context.fillText(" Best time: ",10,230);
 	context.fillText(" "+best,10,260);
 	window.requestAnimationFrame(start);
