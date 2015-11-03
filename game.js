@@ -1,6 +1,8 @@
 
 ////////////////////////Canvas \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 var canvas = document.getElementById("canvas");
+window.innerWidth=300;
+window.innerHeight=400;
 canvas.width=window.innerWidth;
 canvas.height=window.innerHeight
 var context = canvas.getContext("2d");
@@ -241,9 +243,9 @@ function mazedraw(){
 	maps[29][98]='3';
 }
 function end(){
-	context.clearRect(0,0,2000,2000);
+	context.clearRect(0,0,1000,1000);
 	context.fillStyle= "black";
-	context.fillRect(0,0,2000,2000);
+	context.fillRect(0,0,1000,1000);
 	context.fillStyle= "red";
 	if(startb==true){window.requestAnimationFrame(main);}
 	context.font="30px Verdana";
