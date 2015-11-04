@@ -17,20 +17,27 @@ var mazewidth=50;
 var grass = new Image();
 var tree = new Image();
 var bush = new Image();
-var playerleft = new Image();
+var playerleft1 = new Image();
+var playerleft2 = new Image();
+var playerRight1 = new Image();
+var playerRight2 = new Image();
+var playerUp1 = new Image();
+var playerUp2 = new Image();
+var playerDown1 = new Image();
+var playerDown2 = new Image();
 
 ////////////////////////Image sources \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 grass.src= 'res/grass.png';
 tree.src = 'res/tree.png';
 bush.src = 'res/bush.png';
 playerleft.src='res/player/playerleft1.png';
-playerleft.src='res/player/playerleft2.png';
-playerleft.src='res/player/playerRight1.png';
-playerleft.src='res/player/playerRight1.png';
-playerleft.src='res/player/playerUp1.png';
-playerleft.src='res/player/playerUp2.png';
-playerleft.src='res/player/playerDown1.png';
-playerleft.src='res/player/playerDown2.png';
+playerleft2.src='res/player/playerleft2.png';
+playerRight1.src='res/player/playerRight1.png';
+playerRight2.src='res/player/playerRight1.png';
+playerUp1.src='res/player/playerUp1.png';
+playerUp2.src='res/player/playerUp2.png';
+playerDown1.src='res/player/playerDown1.png';
+playerDown2.src='res/player/playerDown2.png';
 
 ////////////////////////Boolean variables for collisions \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 var upB=true;
