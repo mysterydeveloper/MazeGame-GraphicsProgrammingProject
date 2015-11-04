@@ -17,13 +17,20 @@ var mazewidth=50;
 var grass = new Image();
 var tree = new Image();
 var bush = new Image();
-var player = new Image();
+var playerleft = new Image();
 
 ////////////////////////Image sources \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-grass.src= 'grass.png';
-tree.src = 'tree.png';
-bush.src = 'bush.png';
-player.src='player.png';
+grass.src= 'res/grass.png';
+tree.src = 'res/tree.png';
+bush.src = 'res/bush.png';
+playerleft.src='res/player/playerleft1.png';
+playerleft.src='res/player/playerleft2.png';
+playerleft.src='res/player/playerRight1.png';
+playerleft.src='res/player/playerRight1.png';
+playerleft.src='res/player/playerUp1.png';
+playerleft.src='res/player/playerUp2.png';
+playerleft.src='res/player/playerDown1.png';
+playerleft.src='res/player/playerDown2.png';
 
 ////////////////////////Boolean variables for collisions \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 var upB=true;
