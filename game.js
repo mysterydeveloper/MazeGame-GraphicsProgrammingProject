@@ -30,10 +30,10 @@ var playerDown2 = new Image();
 grass.src= 'res/grass.png';
 tree.src = 'res/tree.png';
 bush.src = 'res/bush.png';
-playerleft.src='res/player/playerleft1.png';
+playerleft1.src='res/player/playerleft1.png';
 playerleft2.src='res/player/playerleft2.png';
 playerRight1.src='res/player/playerRight1.png';
-playerRight2.src='res/player/playerRight1.png';
+playerRight2.src='res/player/playerRight2.png';
 playerUp1.src='res/player/playerUp1.png';
 playerUp2.src='res/player/playerUp2.png';
 playerDown1.src='res/player/playerDown1.png';
@@ -88,41 +88,49 @@ var playerobj = {
 	draw: function() {
 			context.clearRect(playerobj.x-offsetX,playerobj.y-offsetY,20,20);
 		
-		if(upSB=true){
-			if(count%2=0){
-				context.drawImage(playerUp1,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);	
+		if(upSB==true){
+			if(count%2==0){
+				context.drawImage(playerUp1,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);
+				count++;
 			}
 			else{
-				context.drawImage(playerUp2,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);	
+				context.drawImage(playerUp2,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);
+				count++;
 			}
 		}
-		if(leftSB=true){
-			if(count%2=0){
-				context.drawImage(playerleft1,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);	
+		if(leftSB==true){
+			if(count%2==0){
+				context.drawImage(playerleft1,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);
+				count++;
 			}
 			else{
-				context.drawImage(playerleft2,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);	
+				context.drawImage(playerleft2,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);
+				count++;
 			}
 		}
-		if(rightSB=true){
-			if(count%2=0){
-				context.drawImage(playerRight1,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);	
+		if(rightSB==true){
+			if(count%2==0){
+				context.drawImage(playerRight1,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);
+				count++;
 			}
 			else{
-				context.drawImage(playerRight2,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);	
+				context.drawImage(playerRight2,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);
+				count++;
 			}
 		}
-		if(downSB=true){
-			if(count%2=0){
-				context.drawImage(playerDown1,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);	
+		if(downSB==true){
+			if(count%2==0){
+				context.drawImage(playerDown1,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);
+				count++;
 			}
 			else{
-				context.drawImage(playerDown1,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);	
+				context.drawImage(playerDown2,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);
+				count++;
 			}
 		}	
 	
 	},
-	////////////////////////Collision function to see whre the player is and dectect if he is able to move or not \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+////////////////////////Collision function to see whre the player is and dectect if he is able to move or not \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 	collision: function(){
 		////////////////////////up function the sees if the player can move up or not \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 		function up(){
@@ -250,6 +258,7 @@ function maze() {
 maze();
 
 function mazedraw(){
+	
 	k=1;
 	posX=0-offsetX;
 	posY=0-offsetY;
@@ -314,34 +323,37 @@ function end(){
 	window.requestAnimationFrame(end);
 }
 function main(){
-	startb=false;
-	var cpop=maps[(playerobj.y/30)][(playerobj.x/30)];
-	if(cpop=='3'){
-		if(tick<best){best=tick;}
-		window.requestAnimationFrame(end);
-	}
-	else{
-		
-		context.clearRect(0,0,2000,2000);
-		context.fillRect(0,0,2000,2000);
-	if(time>0){mazedraw();}
-	grass.onload = function (){
-		tree.onload = function (){
-			bush.onload = function(){
-				mazedraw();
-			} 
+	setTimeout(function() {
+		startb=false;
+		var cpop=maps[(playerobj.y/30)][(playerobj.x/30)];
+		if(cpop=='3'){
+			if(tick<best){best=tick;localStorage.setItem("besttime",best);}
+			window.requestAnimationFrame(end);
+			return;
 		}
+		else{
 
-	}
-	time++;	
-	playerobj.draw();
-	//console.log(tick);
-	context.font="30px Verdana";
-	context.fillText("time:"+tick,window.innerWidth/2/2,window.innerHeight);
-	context.fillStyle = "#ff0000"; 
-		
-	window.requestAnimationFrame(main);
-	}
+			context.clearRect(0,0,2000,2000);
+			context.fillRect(0,0,2000,2000);
+		if(time>0){mazedraw();}
+		grass.onload = function (){
+			tree.onload = function (){
+				bush.onload = function(){
+					mazedraw();
+				} 
+			}
+
+		}
+		time++;	
+		playerobj.draw();
+		//console.log(tick);
+		context.font="30px Verdana";
+		context.fillText("time:"+tick,window.innerWidth/2/2,window.innerHeight);
+		context.fillStyle = "#ff0000"; 
+
+		window.requestAnimationFrame(main);
+		}
+	}, 1000/10);
 }
 function start(){
 	if(startb==true){window.requestAnimationFrame(main);}
