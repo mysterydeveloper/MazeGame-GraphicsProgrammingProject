@@ -39,11 +39,20 @@ playerUp2.src='res/player/playerUp2.png';
 playerDown1.src='res/player/playerDown1.png';
 playerDown2.src='res/player/playerDown2.png';
 
+
+////////////////////////Boolean variables for different sprites \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+var upSB=false;
+var leftSB= false;
+var rightSB= true;
+var downSB=false;
+
+
 ////////////////////////Boolean variables for collisions \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 var upB=true;
 var downB=true;
 var leftB=true;
 var rightB=true;
+var count=0;
 
 ////////////////////////Misc variables for game \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 var posX=0;
@@ -78,9 +87,39 @@ var playerobj = {
 	////////////////////////Draw Function for drawing the player to the screen \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 	draw: function() {
 			context.clearRect(playerobj.x-offsetX,playerobj.y-offsetY,20,20);
-
-		context.drawImage(player,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);
 		
+		if(upSB=true){
+			if(count%2=0){
+				context.drawImage(playerUp1,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);	
+			}
+			else{
+				context.drawImage(playerUp2,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);	
+			}
+		}
+		if(leftSB=true){
+			if(count%2=0){
+				context.drawImage(playerleft1,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);	
+			}
+			else{
+				context.drawImage(playerleft2,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);	
+			}
+		}
+		if(rightSB=true){
+			if(count%2=0){
+				context.drawImage(playerRight1,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);	
+			}
+			else{
+				context.drawImage(playerRight2,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);	
+			}
+		}
+		if(downSB=true){
+			if(count%2=0){
+				context.drawImage(playerDown1,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);	
+			}
+			else{
+				context.drawImage(playerDown1,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);	
+			}
+		}	
 	
 	},
 	////////////////////////Collision function to see whre the player is and dectect if he is able to move or not \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -337,25 +376,41 @@ window.addEventListener("keydown", function(event) {
         if (event.keyCode == 39 && rightB==true )//right
 	  {
 		playerobj.x+=30;		  
-		offsetX+=30;	
+		offsetX+=30;
+		  rightSB=true;
+		  leftSB=false;
+		  upSB=false;
+		  downSB=false;
           //console.log(event);
 	  }
         if (event.keyCode == 37 && leftB==true )//left
 	  {
 		  playerobj.x-=30;
 		  offsetX-=30;
+		  rightSB=false;
+		  leftSB=true;
+		  upSB=false;
+		  downSB=false;
            //console.log(event);
 	  }
         if (event.keyCode == 40 && downB==true )//down
 	  {
 		playerobj.y+=30;
 		offsetY+=30;
- 		//console.log(event);
+ 		  rightSB=false;
+		  leftSB=false;
+		  upSB=false;
+		  downSB=true;
+		  //console.log(event);
 	  }
         if (event.keyCode == 38 && upB==true )//up
 	  {
 		playerobj.y-=30;
 		  offsetY-=30;
+		  rightSB=false;
+		  leftSB=false;
+		  upSB=true;
+		  downSB=false;
            //console.log(event);
 	  }
 	if (event.keyCode == 13 )//enter
