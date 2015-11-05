@@ -1,3 +1,9 @@
+var win = new Audio('music/bgmusic.wav');
+win.addEventListener('ended', function() {
+    this.currentTime = 0;
+    this.play();
+}, false);
+win.play();
 
 ////////////////////////Canvas \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 var canvas = document.getElementById("canvas");
