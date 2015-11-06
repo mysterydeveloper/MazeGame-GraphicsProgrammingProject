@@ -272,50 +272,50 @@ maze();
 
 function mazedraw(){
 	
-	k=1;
-	posX=0-offsetX;
-	posY=0-offsetY;
-	for(var i=0; i < 30; i++){
-		for(var j=0; j < 99; j++){
+	k=1;//set k=1 so it will draw the maze 
+	posX=0-offsetX;//get the offsetX and this is the way i see where the player cause i offset so i have to take that into consideration
+	posY=0-offsetY;//get the offsetY and this is the way i see where the player cause i offset so i have to take that into consideration
+	for(var i=0; i < 30; i++){//loop over the array
+		for(var j=0; j < 99; j++){//loop of the array
 
-			if(res[k]==' ' ){
+			if(res[k]==' ' ){//if res[k] = ' ' draw grass
 				context.drawImage(grass,posX, posY, 30, 30);
-				maps[i][j]='0';
+				maps[i][j]='0';//add 0 to that maps array position for collisions
 			}
-			if(res[k]=='_' ){
+			if(res[k]=='_' ){//if res[k] = '_' draw bush
 				context.drawImage(bush,posX, posY, 30, 30);
-				maps[i][j]='1';
+				maps[i][j]='1';//add 1 to that maps array position for collisions
 			}
-			if( res[k]=='|' ){
+			if( res[k]=='|' ){//if res[k] = '|' draw tree
 				context.drawImage(tree,posX,posY,30,30);
-				maps[i][j]='2';
+				maps[i][j]='2';//add 2 to that maps array position for collisions
 			}
-			k++;
-			posX+=30;
+			k++;//increment k to get the next value in the maze
+			posX+=30;//increment posX by 30 so it doesnt draw over the previous image
 		}
-		if(i<29){
+		if(i<29){//if i<29 draw a tree (border at the end)
 			context.drawImage(tree,posX,posY,30,30);
-			maps[i][j]='2';
+			maps[i][j]='2';//add 2 to that maps array position for collisions
 		}
-		k+=2;
-		posY+=30;
-		posX=0-offsetX;
+		k+=2;//add 2 to k so that the maze look fine
+		posY+=30;//increment posY by 30 so it doesnt draw over the previous image
+		posX=0-offsetX;//set posX back to the original value so it can be draw on the next line
 	}
-	if(i==30){
-		posY-=30;
-		for(off=0;off<10;off++){
-		posY+=30;
-		posX=0-offsetX;
+	if(i==30){//i==30 draw aload if trees below the maze
+		posY-=30;//set this so it doesnt skip a row
+		for(off=0;off<20;off++){
+		posY+=30;//increment posY by 30 so it doesnt draw over the previous image
+		posX=0-offsetX;//set posX back to the original value so it can be draw on the next line
 			for(var j=0; j < 98; j++){
-				context.drawImage(tree,posX,posY,30,30);
-				maps[i][j]='2';
-				posX+=30;
+				context.drawImage(tree,posX,posY,30,30);//draw tree image
+				maps[i][j]='2';//add 2 to that maps array position for collisions
+				posX+=30;//increment posX by 30 so it doesnt draw over the previous image
 
 			}
 		}
 		
 	}
-	maps[29][98]='3';
+	maps[29][98]='3';//set the last position to the finish it 
 }
 function end(){
 	context.clearRect(0,0,1000,1000);
