@@ -194,77 +194,77 @@ var playerobj = {
 function maze() {
 	////////////////////////mazeMaker OBject for the maze generation\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
    var mazeMaker = {
-        map    : [],
-        WIDTH  : 50,
-        HEIGHT : 30,
+        map    : [],//create an array to hold the maze
+        WIDTH  : 50,//set the width of the maze
+        HEIGHT : 30,//set the height of the maze
  
-        DIRECTIONS : {
-           'N' : { dy: -1, opposite: 'S' },
-            'S' : { dy:  1, opposite: 'N' },
-            'E' : { dx:  1, opposite: 'W' },
-            'W' : { dx: -1, opposite: 'E' }
+        DIRECTIONS : {//create an object called directions to store the directions the maze can move  N-E-S-W
+           'N' : { dy: -1, opposite: 'S' },//create an object call 'N' Which is north, it has two values dy to move the maze that way -1(up) and opposite to set its polar opposite 'S'
+            'S' : { dy:  1, opposite: 'N' },//create an object call 'S' Which is south, it has two values dy to move the maze that way +1(down) and opposite to set its polar opposite 'N'	  
+            'E' : { dx:  1, opposite: 'W' },//create an object call 'E' Which is east, it has two values dx to move the maze that way +1(right) and opposite to set its polar opposite 'W'		  
+            'W' : { dx: -1, opposite: 'E' }//create an object call 'W' Which is east, it has two values dx to move the maze that way -1(left) and opposite to set its polar opposite 'E'
         },
  
-        prefill : function () {
+        prefill : function () {//Prefill function that fills the array 
 		for (var x = 0; x < this.WIDTH; x++) {
-                this.map[x] = [];
+                this.map[x] = [];//creating a 2d array(as far as i know this is the only wat to create a 2d arry)
                 for (var y = 0; y < this.HEIGHT; y++) {
-                    this.map[x][y] = {};
+                    this.map[x][y] = {};//create and object for each element in the array
                 }
             }
         },
  
-        shuffle : function (o) {
- 		for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
-            return o;
+        shuffle : function (o) {//shuffle fucntin that basically randomises the maze so a random output is done everytime
+ 		for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);//randomises the maze
+            return o;//return the randomised maze
         },
  
-        carve : function (x0, y0, direction) {
+        carve : function (x0, y0, direction) {//carve function this carves a way throught the grid to make it to the end
  		//console.log('[%d, %d, "%s"]', x0, y0, direction);
  
-            var x1 = x0 + (this.DIRECTIONS[direction].dx || 0);
+            var x1 = x0 + (this.DIRECTIONS[direction].dx || 0);//
             var y1 = y0 + (this.DIRECTIONS[direction].dy || 0);
  
             if (x1 == 0 || x1 == this.WIDTH || y1 == 0 || y1 == this.HEIGHT) {
-                return;
+                return;//return if the value of x1 is 0 || x1 == width || y1 is 0 || y1 == height so it makes so it doesnt try to carve after or before the starting value
             }
  
             if ( this.map[x1][y1].seen ) {
-                return;
+                return;//return if the element is  has already been carved through so it doesnt end up with nothing in the maze 
             }
  
-            this.map[x0][y0][ direction ] = true;
-            this.map[x1][y1][ this.DIRECTIONS[direction].opposite ] = true;
-            this.map[x1][y1].seen = true;
+            this.map[x0][y0][ direction ] = true;//if it has made it this far set it to true to make it available to be shuffed then carved
+            this.map[x1][y1][ this.DIRECTIONS[direction].opposite ] = true;//if it has made it this far set it to true to make it available to be shuffed then carved
+            this.map[x1][y1].seen = true;////if it has made it this far set it to true so it cant be seen again
 		//console.log(this.map[x1][y1]);
 		  
  
-            var directions = this.shuffle([ 'N', 'S', 'E', 'W' ]);
+            var directions = this.shuffle([ 'N', 'S', 'E', 'W' ]);//shuffle the directions to make it carve a different root every time
             for (var i = 0; i < directions.length; i++) {
-                this.carve(x1, y1, directions[i]);
+                this.carve(x1, y1, directions[i]);//carve through the maze
             }
         },
  
         output : function () {
- 		var output = ' ';
+ 		var output = ' ';//init output to nothing 
             for (var y = 0; y < this.HEIGHT; y++) {
                 for (var x = 0; x < this.WIDTH; x++) {
-                    output += ( this.map[x][y].S ? ' ' : '_' );    
-                    output += ( this.map[x][y].E ? ' ' : '|' );
+                    output += ( this.map[x][y].S ? ' ' : '_' );//ouput a ' ' or a '_'
+                    output += ( this.map[x][y].E ? ' ' : '|' );//ouput a ' ' or a '|'
                 }
-                output += '\n';
+                output += '\n';//everytime it has exceed the width return to a new line to make tha maze look proper
             }
-            output = output.replace(/_ /g, '__');
-		  console.log(output);
-		  mapArray=output;
+            output = output.replace(/_ /g, '__');//replace '_ ' with '__' so that the maze doesnt look like its missing parts
+		  //console.log(output);
+		  mapArray=output;//set mapArray to the value of output so that mapArray can be passed to draw to the screen 
             
         }
     };
  
-    mazeMaker.prefill();
-    mazeMaker.carve(mazeMaker.WIDTH/2, mazeMaker.HEIGHT/2, 'N');
-    mazeMaker.output();
-	res=mapArray.split("");
+    mazeMaker.prefill();// call the prefill function
+    mazeMaker.carve(mazeMaker.WIDTH/2, mazeMaker.HEIGHT/2, 'N');//call the carve function to carve a way to the end 
+    mazeMaker.output();//call the output function
+	res=mapArray.split("");//split the mapArray into an array cal res 
 }
 maze();
 
