@@ -31,7 +31,7 @@ Thanks for downloading and playing this game, I'm very glad you had
 interest on this humble project.
 
 You can send me comments, bugs, ideas or anything else by email.
-And if you have time, please visit my blog!
+And if you have time, please visit my FaceBook Page!
 
 * My email:      manus.duggan@yahoo.com
 * My homepage:   https://github.com/mysterydeveloper
