@@ -393,7 +393,7 @@ function start(){
 }
 window.requestAnimationFrame(start);
 
-setInterval(function add(){tick++;},1000);
+setInterval(function add(){tick++;},1000);//function to keep track of time
 
 window.addEventListener("keydown", function(event) { 
 if(starterb==true){
@@ -402,48 +402,48 @@ if(starterb==true){
 	  {
 		playerobj.x+=30;		  
 		offsetX+=30;
-		  rightSB=true;
-		  leftSB=false;
-		  upSB=false;
-		  downSB=false;
+		  rightSB=true;//set right = true so it can move 
+		  leftSB=false;//set left = false so it cant move 
+		  upSB=false;//set up = false so it cant move 
+		  downSB=false;//set down = false so it cant move 
           //console.log(event);
 	  }
         if (event.keyCode == 37 && leftB==true )//left
 	  {
 		  playerobj.x-=30;
 		  offsetX-=30;
-		  rightSB=false;
-		  leftSB=true;
-		  upSB=false;
-		  downSB=false;
+		  rightSB=false;//set right = false so it cant move 
+		  leftSB=true;//set left = true so it can move 
+		  upSB=false;//set up = false so it cant move 
+		  downSB=false;//set down = false so it cant move 
            //console.log(event);
 	  }
         if (event.keyCode == 40 && downB==true )//down
 	  {
 		playerobj.y+=30;
 		offsetY+=30;
- 		  rightSB=false;
-		  leftSB=false;
-		  upSB=false;
-		  downSB=true;
+ 		  rightSB=false;//set right = false so it cant move 
+		  leftSB=false;//set left = false so it cant move 
+		  upSB=false;//set up = false so it cant move 
+		  downSB=true;//set down = true so it can move down
 		  //console.log(event);
 	  }
         if (event.keyCode == 38 && upB==true )//up
 	  {
 		playerobj.y-=30;
 		  offsetY-=30;
-		  rightSB=false;
-		  leftSB=false;
-		  upSB=true;
-		  downSB=false;
+		  rightSB=false;//set right = false so it cant move 
+		  leftSB=false;//set left = false so it cant move 
+		  upSB=true;//set up = true so it can move 
+		  downSB=false;//set down = false so it cant move down
            //console.log(event);
 	  }
 	
 }
 	if (event.keyCode == 13 )//enter
 	  {
-		startb=true;
-		  starterb=true;
+		startb=true;//set startb = true to game can play
+		  starterb=true;//set starterb = true so the player can move
            //console.log(event);
 	  }
         
