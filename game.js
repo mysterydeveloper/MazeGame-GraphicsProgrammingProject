@@ -1,3 +1,4 @@
+////////////////////////music played ina loop \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 var win = new Audio('music/bgmusic.wav');
 win.addEventListener('ended', function() {
     this.currentTime = 0;
@@ -94,44 +95,48 @@ var playerobj = {
 	draw: function() {
 			context.clearRect(playerobj.x-offsetX,playerobj.y-offsetY,20,20);
 		
+		////////////////////////draw the up images if the player has pressed the up arrow \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 		if(upSB==true){
 			if(count%2==0){
-				context.drawImage(playerUp1,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);
-				count++;
+				context.drawImage(playerUp1,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);//draws up image1 if count%2==0
+				count++;//increment count so it displays the second version of the image next time
 			}
 			else{
-				context.drawImage(playerUp2,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);
-				count++;
+				context.drawImage(playerUp2,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);//draws up image2 if count%2!=0
+				count++;//increment count so it displays the first version of the image next time
 			}
 		}
+		////////////////////////draw the left images if the player has pressed the left arrow \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 		if(leftSB==true){
 			if(count%2==0){
-				context.drawImage(playerleft1,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);
-				count++;
+				context.drawImage(playerleft1,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);//draws left image1 if count%2==0
+				count++;//increment count so it displays the second version of the image next time
 			}
 			else{
-				context.drawImage(playerleft2,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);
-				count++;
+				context.drawImage(playerleft2,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);//draws left image2 if count%2!=0
+				count++;//increment count so it displays the first version of the image next time
 			}
 		}
+		////////////////////////draw the right images if the player has pressed the right arrow \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 		if(rightSB==true){
 			if(count%2==0){
-				context.drawImage(playerRight1,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);
-				count++;
+				context.drawImage(playerRight1,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);//draws right image1 if count%2==0
+				count++;//increment count so it displays the second version of the image next time
 			}
 			else{
-				context.drawImage(playerRight2,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);
-				count++;
+				context.drawImage(playerRight2,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);//draws right image2 if count%2!=0
+				count++;//increment count so it displays the first version of the image next time
 			}
 		}
+		////////////////////////draw the down images if the player has pressed the down arrow \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 		if(downSB==true){
 			if(count%2==0){
-				context.drawImage(playerDown1,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);
-				count++;
+				context.drawImage(playerDown1,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);//draws down image1 if count%2==0
+				count++;//increment count so it displays the second version of the image next time
 			}
 			else{
-				context.drawImage(playerDown2,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);
-				count++;
+				context.drawImage(playerDown2,playerobj.x-offsetX, playerobj.y-offsetY, 20, 20);//draws down image2 if count%2!=0
+				count++;//increment count so it displays the first version of the image next time
 			}
 		}	
 	
