@@ -15,9 +15,9 @@ The keybindings are as follows:
 
 ## Game Overall View
 
-In this game you are required to escape the maze and save the world from an evil mastermind.
-The evil mastermind has created a random maze.
-Can you make it out in time and save your world ??? ..
+####In this game you are required to escape the maze and save the world from an evil mastermind.
+###The evil mastermind has created a random maze.
+##Can you make it out in time and save your world ??? ..
 
 ## Contact
 
