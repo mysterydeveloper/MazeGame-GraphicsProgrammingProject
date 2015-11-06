@@ -71,6 +71,8 @@ var offsetY=0;
 var tick=0;
 var maps=[];
 var startb=false;
+var starterb=false;
+
 var best = localStorage.getItem("besttime") || 100000;
 
 
@@ -394,7 +396,7 @@ window.requestAnimationFrame(start);
 setInterval(function add(){tick++;},1000);
 
 window.addEventListener("keydown", function(event) { 
-
+if(starterb==true){
         playerobj.collision();
         if (event.keyCode == 39 && rightB==true )//right
 	  {
@@ -436,9 +438,12 @@ window.addEventListener("keydown", function(event) {
 		  downSB=false;
            //console.log(event);
 	  }
+	
+}
 	if (event.keyCode == 13 )//enter
 	  {
 		startb=true;
+		  starterb=true;
            //console.log(event);
 	  }
         
