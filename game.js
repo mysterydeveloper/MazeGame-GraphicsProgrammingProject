@@ -8,10 +8,10 @@ win.play();
 
 ////////////////////////Canvas \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 var canvas = document.getElementById("canvas");
-window.innerWidth=300;
-window.innerHeight=400;
-canvas.width=window.innerWidth;
-canvas.height=window.innerHeight
+window.innerWidth=300;//set the inner width
+window.innerHeight=400;//set the inner height
+canvas.width=window.innerWidth;//set the canvas width
+canvas.height=window.innerHeight//set the canvas height
 var context = canvas.getContext("2d");
 
 ////////////////////////Variables For Array to display \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -21,17 +21,17 @@ var mazeheight=30;
 var mazewidth=50;
 
 ////////////////////////Image variables \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-var grass = new Image();
-var tree = new Image();
-var bush = new Image();
-var playerleft1 = new Image();
-var playerleft2 = new Image();
-var playerRight1 = new Image();
-var playerRight2 = new Image();
-var playerUp1 = new Image();
-var playerUp2 = new Image();
-var playerDown1 = new Image();
-var playerDown2 = new Image();
+var grass = new Image();//init varibale to an image
+var tree = new Image();//init varibale to an image
+var bush = new Image();//init varibale to an image
+var playerleft1 = new Image();//init varibale to an image
+var playerleft2 = new Image();//init varibale to an image
+var playerRight1 = new Image();//init varibale to an image
+var playerRight2 = new Image();//init varibale to an image
+var playerUp1 = new Image();//init varibale to an image
+var playerUp2 = new Image();//init varibale to an image
+var playerDown1 = new Image();//init varibale to an image
+var playerDown2 = new Image();//init varibale to an image
 
 ////////////////////////Image sources \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 grass.src= 'res/grass.png';
@@ -73,7 +73,7 @@ var maps=[];
 var startb=false;
 var starterb=false;
 
-var best = localStorage.getItem("besttime") || 100000;
+var best = localStorage.getItem("besttime") || 100000;//get the local storage bestime or 100000 if it doesnt exist
 
 
 ////////////////////////Making maps[] a 2d array by looping over \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -339,18 +339,24 @@ function end(){
 }
 function main(){
 	setTimeout(function() {
-		startb=false;
-		var cpop=maps[(playerobj.y/30)][(playerobj.x/30)];
-		if(cpop=='3'){
-			if(tick<best){best=tick;localStorage.setItem("besttime",best);}
-			window.requestAnimationFrame(end);
-			return;
+		startb=false;//set startb= false
+		var cpop=maps[(playerobj.y/30)][(playerobj.x/30)];//get the positon of the player
+		if(cpop=='3'){//if cpop is 3 end the game and start end game loop
+			if(tick<best){//if the time its taken is less than the best time 
+				best=tick;//set the best time to the current time
+				localStorage.setItem("besttime",best);//set the best time into localstorage
+			}
+			window.requestAnimationFrame(end);//request end fucntion the game 
+			return;//return fromt the main game loop
 		}
 		else{
 
-			context.clearRect(0,0,2000,2000);
-			context.fillRect(0,0,2000,2000);
-		if(time>0){mazedraw();}
+			context.clearRect(0,0,2000,2000);//clear canvas
+			context.fillRect(0,0,2000,2000);//fill the background
+		if(time>0){// if time is greater than 0 draw the maze
+			mazedraw();
+		}
+			//load alll the images and draw the maze
 		grass.onload = function (){
 			tree.onload = function (){
 				bush.onload = function(){
@@ -359,14 +365,14 @@ function main(){
 			}
 
 		}
-		time++;	
-		playerobj.draw();
+		time++;//increment time	
+		playerobj.draw();//draw the playerobj
 		//console.log(tick);
-		context.font="30px Verdana";
-		context.fillText("time:"+tick,window.innerWidth/2/2,window.innerHeight);
-		context.fillStyle = "#ff0000"; 
+		context.font="30px Verdana";//set the font to be 30px verdana
+		context.fillText("time:"+tick,window.innerWidth/2/2,window.innerHeight);//draw the text onto the screen at a x and y value
+		context.fillStyle = "#ff0000"; //set the colour to black
 
-		window.requestAnimationFrame(main);
+		window.requestAnimationFrame(main);//request Main fucntion the game 
 		}
 	}, 1000/10);
 }
