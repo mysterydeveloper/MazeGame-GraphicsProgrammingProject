@@ -321,7 +321,7 @@ function end(){
 	context.clearRect(0,0,1000,1000);//clear canvas
 	context.fillStyle= "black";//set the colour to black
 	context.fillRect(0,0,1000,1000);//fill the background
-	context.fillStyle= "red";//set colour to black
+	context.fillStyle= "red";//set colour to red
 	if(startb==true){
 		window.requestAnimationFrame(main);//request Main fucntion the game 
 	}
@@ -374,24 +374,24 @@ function start(){
 	if(startb==true){
 		window.requestAnimationFrame(main);//request Main fucntion the game 
 	}
-	context.clearRect(0,0,2000,2000);
+	context.clearRect(0,0,2000,2000);//clear canvas
 	if(startb==false){
-	context.fillStyle= "black";
-	context.fillRect(0,0,2000,2000);
-	context.fillStyle= "red";
-	context.font="30px Verdana";
-	context.fillText(" TRAPPED ",10,30);
-	context.font="10px Verdana";
-	context.fillText(" You have been trapped by an evil mastermind ",10,60);
-	context.fillText(" Can you escape his clutches and warn the world",10,80);
-	context.fillText(" of his evil plan !!! ",10,100);
-	context.fillText(" the world is depending on you... ",10,120);
-	context.fillText(" are you up to the challenge? ",10,140);
-	context.font="30px Verdana";
-	context.fillText(" If so Press ENTER NOW!! ",10,190);
+	context.fillStyle= "black";//set colour to black
+	context.fillRect(0,0,2000,2000);//fill the background
+	context.fillStyle= "red";//set colour to red
+	context.font="30px Verdana";//set the font to be 30px verdana
+	context.fillText(" TRAPPED ",10,30);//draw the text onto the screen at a x and y value
+	context.font="10px Verdana";//set the font to be 10px verdana
+	context.fillText(" You have been trapped by an evil mastermind ",10,60);//draw the text onto the screen at a x and y value
+	context.fillText(" Can you escape his clutches and warn the world",10,80);//draw the text onto the screen at a x and y value
+	context.fillText(" of his evil plan !!! ",10,100);//draw the text onto the screen at a x and y value
+	context.fillText(" the world is depending on you... ",10,120);//draw the text onto the screen at a x and y value
+	context.fillText(" are you up to the challenge? ",10,140);//draw the text onto the screen at a x and y value
+	context.font="30px Verdana";//set the font to be 30px verdana
+	context.fillText(" If so Press ENTER NOW!! ",10,190);//draw the text onto the screen at a x and y value
 	if(best==100000) best="NEVER FINSISHED ";
-	context.fillText(" Best time: ",10,230);
-	context.fillText(" "+best,10,260);
+	context.fillText(" Best time: ",10,230);//draw the text onto the screen at a x and y value
+	context.fillText(" "+best,10,260);//draw the text onto the screen at a x and y value
 	window.requestAnimationFrame(start);//request startfucntion the game 
 	}
 }
