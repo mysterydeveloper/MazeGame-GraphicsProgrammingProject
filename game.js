@@ -145,49 +145,49 @@ var playerobj = {
 	collision: function(){
 		////////////////////////up function the sees if the player can move up or not \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 		function up(){
-			var above=maps[(playerobj.y/30)-1][((playerobj.x)/30)];
-			if(above=='0'){upB=true;}
-			else if(above=='1'){upB=false;}
-			else if(above=='2'){upB=false;}
+			var above=maps[(playerobj.y/30)-1][((playerobj.x)/30)];//gets the position of playerobj in maps array-1y to get the above value
+			if(above=='0'){upB=true;}//if its a 0 you can move up
+			else if(above=='1'){upB=false;}//if its a 1 you cant move up
+			else if(above=='2'){upB=false;}//if its a 2 you cant move up
 			//console.log(above);
 		}
 		////////////////////////down function the sees if the player can move down or not \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 		function down(){
 			
-			var below=maps[(playerobj.y/30)+1][(playerobj.x/30)];
-			if(below=='0'){downB=true;}
-			else if(below=='1'){downB=true;}
-			else if(below=='2'){downB=false;}
+			var below=maps[(playerobj.y/30)+1][(playerobj.x/30)];//gets the position of playerobj in maps array+1y to get the below value
+			if(below=='0'){downB=true;}//if its a 0 you can move down
+			else if(below=='1'){downB=true;}//if its a 1 you can move down
+			else if(below=='2'){downB=false;}//if its a 2 you cant move down
 			//console.log(below);
 		}
 		////////////////////////left function the sees if the player can move left or not \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 		function left(){
-			var lefty=maps[(playerobj.y/30)][(playerobj.x/30)-1];
-			if(lefty=='0'){leftB=true;}
-			else if(lefty=='1'){leftB=true;}
-			else if(lefty=='2'){leftB=false;}
+			var lefty=maps[(playerobj.y/30)][(playerobj.x/30)-1];//gets the position of playerobj in maps array-1x to get the left value
+			if(lefty=='0'){leftB=true;}//if its a 0 you can move left
+			else if(lefty=='1'){leftB=true;}//if its a 1 you can move left
+			else if(lefty=='2'){leftB=false;}//if its a 2 you cant move left
 			//console.log(lefty);
 		}
 		////////////////////////right function the sees if the player can move right or not \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 		function right(){
-			var righty=maps[(playerobj.y/30)][((playerobj.x)/30)+1];
-			if(righty=='0'){rightB=true;}
-			else if(righty=='1'){rightB=true;}
-			else if(righty=='2'){rightB=false;}
+			var righty=maps[(playerobj.y/30)][(playerobj.x/30)+1];//gets the position of playerobj in maps array+1x to get the right value
+			if(righty=='0'){rightB=true;}//if its a 0 you can move right
+			else if(righty=='1'){rightB=true;}//if its a 1 you can move right
+			else if(righty=='2'){rightB=false;}//if its a 2 you cant move right
 			//console.log(righty);
 		}
 		////////////////////////current function the sees if the player can move down or not if player is on a half block\\\\\\\\\\
 		function current(){
-			var currenty=maps[(playerobj.y/30)][(playerobj.x/30)];
-			if(currenty=='1'){downB=false;}
+			var currenty=maps[(playerobj.y/30)][(playerobj.x/30)];//gets the position of playerobj in maps array
+			if(currenty=='1'){downB=false;}//if its a 1 you can move down
 			//console.log(currenty);
 		}
 
-		right();
-		left();
-		down();
-		up();
-		current();
+		right();//call function right to see what is right of player
+		left();//call function left to see what is left of player
+		down();//call function down to see what is down of player
+		up();//call function up to see what is up of player
+		current();//call function current to see where player is
 	}
 }
 ////////////////////////Maze function for designing the maze which is all done by the computer when the game runs \\\\\\\\\\\\\\\\\\\\\\
