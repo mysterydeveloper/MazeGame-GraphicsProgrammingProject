@@ -318,22 +318,24 @@ function mazedraw(){
 	maps[29][98]='3';//set the last position to the finish it 
 }
 function end(){
-	context.clearRect(0,0,1000,1000);
-	context.fillStyle= "black";
-	context.fillRect(0,0,1000,1000);
-	context.fillStyle= "red";
-	if(startb==true){window.requestAnimationFrame(main);}
-	context.font="30px Verdana";
-	context.fillText(" TRAPPED ",10,30);
-	context.font="10px Verdana";
-	context.fillText(" You Win !!!!!!! ",10,60);
-	context.fillText(" You have defeated the evil mastermind",10,80);
-	context.fillText(" and foiled his evil plan !!! ",10,100);
-	context.fillText(" the world is is in your death ",10,120);
-	context.fillText(" would u like to try again? ",10,140);
-	context.font="30px Verdana";
-	context.fillText(" If so Press ENTER NOW!! ",10,190);	
-	window.requestAnimationFrame(end);
+	context.clearRect(0,0,1000,1000);//clear canvas
+	context.fillStyle= "black";//set the colour to black
+	context.fillRect(0,0,1000,1000);//fill the background
+	context.fillStyle= "red";//set colour to black
+	if(startb==true){
+		window.requestAnimationFrame(main);//request Main fucntion the game 
+	}
+	context.font="30px Verdana";//set the font to be 30px verdana
+	context.fillText(" TRAPPED ",10,30);//draw the text onto the screen at a x and y value
+	context.font="10px Verdana";//set the font to be 10px verdana
+	context.fillText(" You Win !!!!!!! ",10,60);//draw the text onto the screen at a x and y value
+	context.fillText(" You have defeated the evil mastermind",10,80);//draw the text onto the screen at a x and y value
+	context.fillText(" and foiled his evil plan !!! ",10,100);//draw the text onto the screen at a x and y value
+	context.fillText(" the world is is in your death ",10,120);//draw the text onto the screen at a x and y value
+	context.fillText(" would u like to try again? ",10,140);//draw the text onto the screen at a x and y value
+	context.font="30px Verdana";//set the font to be 30px verdana
+	context.fillText(" If so Press ENTER NOW!! ",10,190);	//draw the text onto the screen at a x and y value
+	window.requestAnimationFrame(end);//request end fucntion the game 
 }
 function main(){
 	setTimeout(function() {
@@ -369,7 +371,9 @@ function main(){
 	}, 1000/10);
 }
 function start(){
-	if(startb==true){window.requestAnimationFrame(main);}
+	if(startb==true){
+		window.requestAnimationFrame(main);//request Main fucntion the game 
+	}
 	context.clearRect(0,0,2000,2000);
 	if(startb==false){
 	context.fillStyle= "black";
@@ -388,10 +392,10 @@ function start(){
 	if(best==100000) best="NEVER FINSISHED ";
 	context.fillText(" Best time: ",10,230);
 	context.fillText(" "+best,10,260);
-	window.requestAnimationFrame(start);
+	window.requestAnimationFrame(start);//request startfucntion the game 
 	}
 }
-window.requestAnimationFrame(start);
+window.requestAnimationFrame(start);//request startfucntion the game 
 
 setInterval(function add(){tick++;},1000);//function to keep track of time
 
